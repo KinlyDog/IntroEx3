@@ -20,11 +20,10 @@ public class Level1 {
         while (flag) {
             flag = false;
             day++;
-            int dayz = day - 1;
 
             for (int i = 0; i < battle.length; i++) {
                 for (int j = 0; j < battle[i].length; j++) {
-                    if (battle[i][j] == dayz) {
+                    if (battle[i][j] == day - 1) {
                         if (i > 0 && battle[i - 1][j] == 0)    battle[i - 1][j] = day;
                         if (j > 0 && battle[i][j - 1] == 0)    battle[i][j - 1] = day;
                         if (j < ylen && battle[i][j + 1] == 0) battle[i][j + 1] = day;
@@ -35,7 +34,8 @@ public class Level1 {
 
             for (int i = 0; i < battle.length; i++) {
                 for (int j = 0; j < battle[0].length; j++) {
-                    if (battle[i][j] == 0) flag = true;
+                    if (battle[i][j] == 0)
+                        flag = true;
                 }
             }
 
