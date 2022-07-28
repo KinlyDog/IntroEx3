@@ -12,7 +12,6 @@ public class Level1 {
             battle[x][y] = day;
         }
 
-
         boolean flag = true;
         int xlen = battle.length;
         int ylen = battle[0].length;
