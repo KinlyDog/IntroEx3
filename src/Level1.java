@@ -1,16 +1,18 @@
 public class Level1 {
     public static int ConquestCampaign(int n, int m, int l, int[] battalion) {
-        if (n * m == l) return 1;
+        int day = 1;
+
+        if (n * m == l) return day;
 
         int[][] battle = new int[n][m];
         for (int i = 0; i < l * 2 - 1; i += 2) {
             int x = battalion[i] - 1;
             int y = battalion[i + 1] - 1;
 
-            battle[x][y] = 1;
+            battle[x][y] = day;
         }
 
-        int day = 1;
+
         boolean flag = true;
         int xlen = battle.length;
         int ylen = battle[0].length;
@@ -32,19 +34,11 @@ public class Level1 {
 
             for (int i = 0; i < xlen; i++) {
                 for (int j = 0; j < ylen; j++) {
-                    if (battle[i][j] == 0)
-                        flag = true;
+                    if (battle[i][j] == 0) flag = true;
                 }
             }
-
         }
 
         return day;
-    }
-
-    public static void main(String[] args) {
-        int[] ar = new int[] {2, 2, 3, 4};
-
-        System.out.println(ConquestCampaign(3, 4, 2, ar));
     }
 }
