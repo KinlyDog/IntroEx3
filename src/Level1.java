@@ -1,7 +1,8 @@
 public class Level1 {
     public static int ConquestCampaign(int n, int m, int l, int[] battalion) {
-        int[][] battle = new int[n][m];
+        if (n * m == l) return 1;
 
+        int[][] battle = new int[n][m];
         for (int i = 0; i < l * 2 - 1; i += 2) {
             int x = battalion[i] - 1;
             int y = battalion[i + 1] - 1;
