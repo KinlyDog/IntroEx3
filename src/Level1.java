@@ -12,12 +12,12 @@ public class Level1 {
             battle[x][y] = day;
         }
 
-        boolean flag = true;
+        boolean battleIsOver = true;
         int xlen = battle.length;
         int ylen = battle[0].length;
 
-        while (flag) {
-            flag = false;
+        while (battleIsOver) {
+            battleIsOver = false;
             day++;
 
             for (int i = 0; i < xlen; i++) {
@@ -33,7 +33,7 @@ public class Level1 {
 
             for (int i = 0; i < xlen; i++) {
                 for (int j = 0; j < ylen; j++) {
-                    if (battle[i][j] == 0) flag = true;
+                    if (battle[i][j] == 0) battleIsOver = true;
                 }
             }
         }
