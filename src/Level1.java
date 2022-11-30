@@ -1,43 +1,43 @@
 public class Level1 {
     public static int ConquestCampaign(int n, int m, int l, int[] battalion) {
-        int day = 1;
+        int battlefieldDay = 1;
 
-        if (n * m == l) return day;
+        if (n * m == l) return battlefieldDay;
 
         int[][] battle = new int[n][m];
         for (int i = 0; i < l * 2 - 1; i += 2) {
             int x = battalion[i] - 1;
             int y = battalion[i + 1] - 1;
 
-            battle[x][y] = day;
+            battle[x][y] = battlefieldDay;
         }
 
         boolean battleIsOver = true;
-        int xlen = battle.length;
-        int ylen = battle[0].length;
+        int battlefieldDay = battle.length;
+        int battlefieldLength = battle[0].length;
 
         while (battleIsOver) {
             battleIsOver = false;
-            day++;
+            battlefieldDay++;
 
-            for (int i = 0; i < xlen; i++) {
-                for (int j = 0; j < ylen; j++) {
-                    if (battle[i][j] == day - 1) {
-                        if (i > 0        && battle[i - 1][j] == 0) battle[i - 1][j] = day;
-                        if (j > 0        && battle[i][j - 1] == 0) battle[i][j - 1] = day;
-                        if (j < ylen - 1 && battle[i][j + 1] == 0) battle[i][j + 1] = day;
-                        if (i < xlen - 1 && battle[i + 1][j] == 0) battle[i + 1][j] = day;
+            for (int i = 0; i < battlefieldDay; i++) {
+                for (int j = 0; j < battlefieldLength; j++) {
+                    if (battle[i][j] == battlefieldDay - 1) {
+                        if (i > 0 && battle[i - 1][j] == 0) battle[i - 1][j] = battlefieldDay;
+                        if (j > 0 && battle[i][j - 1] == 0) battle[i][j - 1] = battlefieldDay;
+                        if (j < battlefieldLength - 1 && battle[i][j + 1] == 0) battle[i][j + 1] = battlefieldDay;
+                        if (i < battlefieldDay - 1 && battle[i + 1][j] == 0) battle[i + 1][j] = battlefieldDay;
                     }
                 }
             }
 
-            for (int i = 0; i < xlen; i++) {
-                for (int j = 0; j < ylen; j++) {
+            for (int i = 0; i < battlefieldDay; i++) {
+                for (int j = 0; j < battlefieldLength; j++) {
                     if (battle[i][j] == 0) battleIsOver = true;
                 }
             }
         }
 
-        return day;
+        return battlefieldDay;
     }
 }
