@@ -2,7 +2,9 @@ public class Level1 {
     public static int ConquestCampaign(int n, int m, int l, int[] battalion) {
         int battlefieldDay = 1;
 
-        if (n * m == l) return battlefieldDay;
+        if (n * m == l) {
+            return battlefieldDay;
+        }
 
         int[][] battle = new int[n][m];
         for (int i = 0; i < l * 2 - 1; i += 2) {
